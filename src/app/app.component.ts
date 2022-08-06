@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
       setTimeout(() => {
         this.alertService.newAlert(null);
         this.alert = null;
-      }, 5000)
+      }, 10000)
     })
   }
 

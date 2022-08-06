@@ -5,7 +5,10 @@
       <clr-input-container class="clr-row">
         <label class="clr-col-3">Email</label>
         <input class="clr-col-6" clrInput formControlName="email" />
-        <clr-control-error>Email is required</clr-control-error>
+        <clr-control-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.required">
+          Email is required</clr-control-error>
+        <clr-control-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.email">
+          Invalid email</clr-control-error>
       </clr-input-container>
       <clr-input-container class="clr-row">
         <label class="clr-col-3">Password</label>

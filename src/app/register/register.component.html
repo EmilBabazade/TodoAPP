@@ -1,13 +1,20 @@
 <div class="container">
-  <h1>Sign In</h1>
+  <h1>Sign Up</h1>
   <div class="form">
-    <form clrForm [formGroup]="loginForm">
+    <form clrForm [formGroup]="registerForm">
+      <clr-input-container class="clr-row">
+        <label class="clr-col-3">Name</label>
+        <input class="clr-col-6" clrInput formControlName="name" />
+        <clr-control-error>Name is required</clr-control-error>
+      </clr-input-container>
       <clr-input-container class="clr-row">
         <label class="clr-col-3">Email</label>
         <input class="clr-col-6" clrInput formControlName="email" />
-        <clr-control-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.required">
+        <clr-control-error
+          *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].errors?.required">
           Email is required</clr-control-error>
-        <clr-control-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.email">
+        <clr-control-error
+          *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].errors?.email">
           Invalid email</clr-control-error>
       </clr-input-container>
       <clr-input-container class="clr-row">
@@ -17,7 +24,7 @@
       </clr-input-container>
 
     </form>
-    <button class="btn btn-primary" (click)="submit()" [disabled]="loginForm.invalid">Login</button>
+    <button class="btn btn-primary" (click)="submit()" [disabled]="registerForm.invalid">Sign Up</button>
   </div>
   <div class="clr-row" style="width: 480px;">
     <div class="clr-col-2">
@@ -25,7 +32,7 @@
     </div>
     <div class="clr-col-8"></div>
     <div class="clr-col-2">
-      <a class="pointer" routerLink="/register">Sign Up</a>
+      <a routerLink="/" class="pointer">Login</a>
     </div>
   </div>
 </div>

@@ -10,11 +10,13 @@ import { AuthInterceptor } from './_interceptors/auth.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     HttpClientModule,

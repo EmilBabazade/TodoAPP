@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private acconuntService: AccountService,
+    private accountService: AccountService,
     private alertService: AlertService) { }
 
   ngOnInit(): void {
@@ -25,10 +25,9 @@ export class LoginComponent implements OnInit {
 
   submit() {
     if(this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched();
       return;
     }
-    this.acconuntService.login(this.loginForm.value)
+    this.accountService.login(this.loginForm.value)
       .subscribe(() => this.alertService.newAlert({message: 'Logged in!', type: 'success'}));
   }
 }

@@ -1,0 +1,14 @@
+<clr-modal [clrModalOpen]="open" [clrModalClosable]="false">
+  <h3 class="modal-title">Logout</h3>
+  <div class="modal-body">
+    <p>Are you sure you want to logout?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-outline" type="button" (click)="confirm.emit(false)">
+      Cancel
+    </button>
+    <button class="btn btn-danger" type="button" (click)="confirm.emit(true)">
+      Yes, continue
+    </button>
+  </div>
+</clr-modal>

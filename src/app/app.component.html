@@ -4,7 +4,7 @@
 </ngx-spinner>
 <div class="main-container">
   <!-- navbar -->
-  <app-navbar *ngIf="loggedIn"></app-navbar>
+  <app-navbar *ngIf="router.url !== '/' && router.url !== '/register'"></app-navbar>
   <!-- alerts -->
   <div class="clr-row">
     <div class="clr-col-2"></div>

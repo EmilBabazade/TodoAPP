@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AccountService } from '../_services/account.service';
 import { AlertService } from '../_services/alert.service';
 
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private accountService: AccountService,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -28,6 +30,9 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.accountService.login(this.loginForm.value)
-      .subscribe(() => this.alertService.newAlert({message: 'Logged in!', type: 'info'}));
+      .subscribe(() => {
+        this.router.navigateByUrl('/list');
+        this.alertService.newAlert({ message: 'Logged in!', type: 'info' });
+      });
   }
 }

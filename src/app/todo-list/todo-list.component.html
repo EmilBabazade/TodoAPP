@@ -1,0 +1,19 @@
+<clr-datagrid>
+  <clr-dg-column [clrDgField]="'id'" [clrDgColType]="'number'">Task No</clr-dg-column>
+  <clr-dg-column [clrDgField]="'text'">Task</clr-dg-column>
+  <clr-dg-column [clrDgField]="'dueDate'" [clrDgColType]="'Date'">Due Date</clr-dg-column>
+  <clr-dg-column [clrDgField]="'done'" [clrDgColType]="'boolean'">Done</clr-dg-column>
+
+  <clr-dg-row *clrDgItems="let todo of todos">
+    <clr-dg-cell>{{todo.id}}</clr-dg-cell>
+    <clr-dg-cell>{{todo.text}}</clr-dg-cell>
+    <clr-dg-cell>{{todo.dueDate}}</clr-dg-cell>
+    <clr-dg-cell>
+      <span class="label" [class.label-success]="todo.done">
+        {{todo.done ? 'Done' : 'Pending'}}
+      </span>
+    </clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{todos.length}} tasks</clr-dg-footer>
+</clr-datagrid>

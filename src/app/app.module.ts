@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ConfirmLogoutComponent } from './_modals/confirm-logout/confirm-logout.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    ConfirmLogoutComponent
+    ConfirmLogoutComponent,
+    TodoListComponent
   ],
   imports: [
     HttpClientModule,

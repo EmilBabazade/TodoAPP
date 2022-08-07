@@ -28,6 +28,6 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.accountService.login(this.loginForm.value)
-      .subscribe(() => this.alertService.newAlert({message: 'Logged in!', type: 'success'}));
+      .subscribe(() => this.alertService.newAlert({message: 'Logged in!', type: 'info'}));
   }
 }

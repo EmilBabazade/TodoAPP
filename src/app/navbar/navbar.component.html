@@ -1,0 +1,11 @@
+<header class="header-6">
+  <div class="branding">
+    <span class="title">Todo List</span>
+  </div>
+  <div class="header-actions">
+    <a class="nav-link nav-icon" aria-label="settings" (click)="logoutDialog = true">
+      <clr-icon class="pointer" shape="logout"></clr-icon>
+    </a>
+  </div>
+</header>
+<app-confirm-logout [open]="logoutDialog" (confirm)="confirmSignOut($event)"></app-confirm-logout>

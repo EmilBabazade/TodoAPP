@@ -23,6 +23,7 @@
     "@clr/icons": "^13.0.2",
     "@clr/ui": "^13.7.0",
     "@webcomponents/custom-elements": "^1.5.0",
+    "ngx-spinner": "^12.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

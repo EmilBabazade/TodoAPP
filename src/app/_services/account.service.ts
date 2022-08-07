@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { LoginModel } from '../_models/login-model';
@@ -12,7 +12,7 @@ import { RegisterModel } from '../_models/register-model';
 })
 export class AccountService {
   readonly apiUrl = environment.apiUrl;
-  private currentUserSource = new ReplaySubject<User| null>(1);
+  private currentUserSource = new BehaviorSubject<User| null>(null);
   currentUser$: Observable<User | null> = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) { }

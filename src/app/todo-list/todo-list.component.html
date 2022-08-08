@@ -5,6 +5,12 @@
   <clr-dg-column [clrDgField]="'done'" [clrDgColType]="'boolean'">Done</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let todo of todos">
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="doneUnDone(todo)">
+        <ng-container *ngIf="todo.done">Mark As Not Done</ng-container>
+        <ng-container *ngIf="!todo.done">Mark As Done</ng-container>
+      </button>
+    </clr-dg-action-overflow>
     <clr-dg-cell>{{todo.id}}</clr-dg-cell>
     <clr-dg-cell>{{todo.text}}</clr-dg-cell>
     <clr-dg-cell>{{todo.dueDate | date}}</clr-dg-cell>
@@ -16,8 +22,8 @@
   </clr-dg-row>
 
   <clr-dg-footer>
-    <clr-dg-pagination #pagination [clrDgPageSize]="5">
-      <clr-dg-page-size [clrPageSizeOptions]="[5, 10,20,50,100]">Tasks per page</clr-dg-page-size>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Tasks per page</clr-dg-page-size>
       {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
       of {{pagination.totalItems}} tasks
     </clr-dg-pagination>

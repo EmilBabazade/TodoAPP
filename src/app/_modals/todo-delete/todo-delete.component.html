@@ -1,0 +1,14 @@
+<clr-modal [clrModalOpen]="show" [clrModalClosable]="false">
+  <h3 class="modal-title">Delete Task No {{id}}</h3>
+  <div class="modal-body">
+    <p>Are you sure you want to delete Task No {{id}}?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-outline" type="button" (click)="close.emit(false)">
+      Cancel
+    </button>
+    <button class="btn btn-danger" type="button" (click)="confirm()">
+      Yes, continue
+    </button>
+  </div>
+</clr-modal>

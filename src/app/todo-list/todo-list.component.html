@@ -14,6 +14,9 @@
       <button class="action-item" (click)="openDeleteModal(todo)">
         Delete
       </button>
+      <a class="action-item" routerLink="/edit/{{todo.id}}">
+        Edit
+      </a>
     </clr-dg-action-overflow>
     <clr-dg-cell>{{todo.id}}</clr-dg-cell>
     <clr-dg-cell>{{todo.text}}</clr-dg-cell>

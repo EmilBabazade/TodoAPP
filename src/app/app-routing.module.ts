@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { TodoNewComponent } from './todo-new/todo-new.component';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: 'list', component: TodoListComponent },
       { path: 'new', component: TodoNewComponent },
+      { path: 'edit/:id', component: TodoEditComponent },
     ]
   },
 ];

@@ -18,6 +18,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDeleteComponent } from './_modals/todo-delete/todo-delete.component';
 import { TodoNewComponent } from './todo-new/todo-new.component';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TodoNewComponent } from './todo-new/todo-new.component';
     ConfirmLogoutComponent,
     TodoListComponent,
     TodoDeleteComponent,
-    TodoNewComponent
+    TodoNewComponent,
+    TodoEditComponent
   ],
   imports: [
     HttpClientModule,

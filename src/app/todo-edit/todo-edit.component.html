@@ -1,0 +1,22 @@
+<h3>Edit Todo No {{todo?.id}}</h3>
+<form clrForm [formGroup]="todoForm" (ngSubmit)="submit()">
+  <clr-input-container>
+    <label>Title</label>
+    <input clrInput formControlName="text" />
+    <clr-control-error>Title is required</clr-control-error>
+  </clr-input-container>
+  <clr-date-container>
+    <label>Due Date</label>
+    <input type="date" clrDate name="demo" formControlName="dueDate">
+    <clr-control-error>Due Date is required</clr-control-error>
+  </clr-date-container>
+  <clr-select-container>
+    <label>Done</label>
+    <select clrSelect formControlName="done">
+      <option value="{{true}}">Done</option>
+      <option value="{{false}}">Pending</option>
+    </select>
+    <clr-control-error>Done status is required</clr-control-error>
+  </clr-select-container>
+  <button class="btn btn-primary" type="submit" [disabled]="todoForm.invalid">Edit</button>
+</form>

@@ -16,6 +16,8 @@ import { ConfirmLogoutComponent } from './_modals/confirm-logout/confirm-logout.
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoDeleteComponent } from './_modals/todo-delete/todo-delete.component';
+import { TodoNewComponent } from './todo-new/todo-new.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     RegisterComponent,
     NavbarComponent,
     ConfirmLogoutComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoDeleteComponent,
+    TodoNewComponent
   ],
   imports: [
     HttpClientModule,
@@ -33,12 +37,13 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

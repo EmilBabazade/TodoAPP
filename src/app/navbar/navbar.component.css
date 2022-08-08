@@ -1,0 +1,8 @@
+.pointer {
+  color: white;
+  text-decoration: none;
+}
+
+.pointer:hover {
+  color: white;
+}

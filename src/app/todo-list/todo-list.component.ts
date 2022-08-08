@@ -9,8 +9,11 @@ import { TodoService } from '../_services/todo.service';
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
+  deleteId: number | null = null;
+  showDeleteModal = false;
 
-  constructor(private todoService: TodoService) { }
+  constructor(
+    private todoService: TodoService,) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -19,6 +22,18 @@ export class TodoListComponent implements OnInit {
   doneUnDone(todo: Todo) {
     todo.done = !todo.done;
     this.todoService.update(todo.id, todo).subscribe(res => this.getAll());
+  }
+
+  openDeleteModal(todo: Todo) {
+    this.deleteId = todo.id;
+    this.showDeleteModal = true;
+  }
+
+  delete(confirmed: boolean) {
+    if (confirmed) {
+      this.getAll();
+    }
+    this.showDeleteModal = false;
   }
 
   private getAll() {

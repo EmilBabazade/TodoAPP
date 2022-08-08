@@ -16,6 +16,7 @@ export class TodoService {
   }
 
   create(todo: AddTodo): Observable<Todo> {
+    todo.dueDate.setDate(todo.dueDate.getDate() + 1);
     return this.http.post<Todo>(this.apiUrl, todo);
   }
 
@@ -23,7 +24,7 @@ export class TodoService {
     let params = new HttpParams();
     params = params.append('dueDate', dueDate);
     params = params.append('order', order);
-    return this.http.get<Todo[]>(this.apiUrl, {params});
+    return this.http.get<Todo[]>(this.apiUrl, { params });
   }
 
   delete(id: number) {
@@ -31,6 +32,7 @@ export class TodoService {
   }
 
   update(id: number, todo: UpdateTodo): Observable<Todo> {
+    todo.dueDate.setDate(todo.dueDate.getDate() + 1);
     return this.http.patch<Todo>(this.apiUrl + '/' + id, todo);
   }
 

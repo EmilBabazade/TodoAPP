@@ -1,0 +1,14 @@
+<h3>Create A New Todo</h3>
+<form clrForm [formGroup]="todoForm" (ngSubmit)="submit()">
+  <clr-input-container>
+    <label>Title</label>
+    <input clrInput formControlName="text" />
+    <clr-control-error>Title is required</clr-control-error>
+  </clr-input-container>
+  <clr-date-container>
+    <label>Due Date</label>
+    <input type="date" clrDate name="demo" formControlName="dueDate">
+    <clr-control-error>Due Date is required</clr-control-error>
+  </clr-date-container>
+  <button class="btn btn-primary" type="submit" [disabled]="todoForm.invalid">Create</button>
+</form>

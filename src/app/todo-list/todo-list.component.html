@@ -1,14 +1,18 @@
+<a routerLink="/new" class="pointer btn btn-primary">Create A Todo</a>
 <clr-datagrid>
   <clr-dg-column [clrDgField]="'id'" [clrDgColType]="'number'">Task No</clr-dg-column>
   <clr-dg-column [clrDgField]="'text'">Task</clr-dg-column>
   <clr-dg-column [clrDgField]="'dueDate'" [clrDgColType]="'Date'">Due Date</clr-dg-column>
-  <clr-dg-column [clrDgField]="'done'" [clrDgColType]="'boolean'">Done</clr-dg-column>
+  <clr-dg-column [clrDgField]="'done'" [clrDgColType]="'Boolean'">Done</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let todo of todos">
     <clr-dg-action-overflow>
       <button class="action-item" (click)="doneUnDone(todo)">
         <ng-container *ngIf="todo.done">Mark As Not Done</ng-container>
         <ng-container *ngIf="!todo.done">Mark As Done</ng-container>
+      </button>
+      <button class="action-item" (click)="openDeleteModal(todo)">
+        Delete
       </button>
     </clr-dg-action-overflow>
     <clr-dg-cell>{{todo.id}}</clr-dg-cell>
@@ -29,3 +33,4 @@
     </clr-dg-pagination>
   </clr-dg-footer>
 </clr-datagrid>
+<app-todo-delete [show]="showDeleteModal" [id]="deleteId" (close)="delete($event)"></app-todo-delete>

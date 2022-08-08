@@ -7,7 +7,7 @@
   <clr-dg-row *clrDgItems="let todo of todos">
     <clr-dg-cell>{{todo.id}}</clr-dg-cell>
     <clr-dg-cell>{{todo.text}}</clr-dg-cell>
-    <clr-dg-cell>{{todo.dueDate}}</clr-dg-cell>
+    <clr-dg-cell>{{todo.dueDate | date}}</clr-dg-cell>
     <clr-dg-cell>
       <span class="label" [class.label-success]="todo.done">
         {{todo.done ? 'Done' : 'Pending'}}
@@ -15,5 +15,11 @@
     </clr-dg-cell>
   </clr-dg-row>
 
-  <clr-dg-footer>{{todos.length}} tasks</clr-dg-footer>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="5">
+      <clr-dg-page-size [clrPageSizeOptions]="[5, 10,20,50,100]">Tasks per page</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      of {{pagination.totalItems}} tasks
+    </clr-dg-pagination>
+  </clr-dg-footer>
 </clr-datagrid>
